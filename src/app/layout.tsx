@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SideBar from "@/components/custom/SideBar";
+import Header from "@/components/custom/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} flex items-start justify-between`}>
+        <SideBar />
+        <main className="w-full h-full">
+        <Header />
+        {children}
+        </main>
+        </body>
     </html>
   );
 }
